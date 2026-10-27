@@ -1,0 +1,47 @@
+{
+  "name": "Java Contact Manager — Browser Desktop",
+  "image": "mcr.microsoft.com/devcontainers/java:3-17-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1.2.10": {
+      "password": "vscode",
+      "webPort": "6080",
+      "vncPort": "5901"
+    }
+  },
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "DISPLAY": ":1",
+    "VNC_RESOLUTION": "1440x900x24"
+  },
+  "forwardPorts": [
+    6080
+  ],
+  "portsAttributes": {
+    "6080": {
+      "label": "Java Contact Manager Desktop",
+      "onAutoForward": "notify",
+      "protocol": "http"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
+  "postCreateCommand": [
+    "python3",
+    "scripts/run.py",
+    "--build-only"
+  ],
+  "postStartCommand": [
+    "python3",
+    "scripts/run.py",
+    "--background"
+  ],
+  "waitFor": "postCreateCommand",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.eol": "\n"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Build output
+/target/
+/build/
+/dist/
+*.class
+*.jar
+
+# Local contact records — never commit these
+/data/
+Contact.txt
+contacts.txt
+
+# IDE and local settings
+/nbproject/private/
+nbactions.xml
+.idea/
+*.iml
+.vscode/*
+!.vscode/tasks.json
+
+# OS files
+.DS_Store
+Thumbs.db
